@@ -4,7 +4,10 @@ import 'package:adv_basic/data/questions.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key, required this.onSelectAnswer});
+  const QuestionsScreen({
+    super.key,
+    required this.onSelectAnswer,
+  });
 
   final void Function(String answer) onSelectAnswer;
 
@@ -40,7 +43,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             Text(
               currentQuestion.text,
               style: GoogleFonts.lato(
-                color: const Color.fromARGB(255, 222, 150, 235),
+                color: const Color.fromARGB(255, 245, 190, 255),
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
@@ -57,7 +60,8 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             ...currentQuestion.getShuffledAnswers().map((answer) {
               return AnswerButton(
                 answerText: answer,
-                onTap: () { // triggered inside button, not when it's created
+                onTap: () {
+                  // triggered inside button, not when it's created
                   answerQuestion(answer);
                 },
               );
