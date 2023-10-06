@@ -34,7 +34,8 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
               height: 30,
             ),
             // ... is an operator
-            ...currentQuestion.answers.map((answer) {
+            // .shuffle changes the list, so in here, we cannot use it
+            ...currentQuestion.getShuffledAnswers().map((answer) {
               return AnswerButton(answerText: answer, onTap: () {},);
             }),
           ],
